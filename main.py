@@ -3,6 +3,14 @@
 ### Building Url Dynamically
 ### Variable Rules and URL Building
 
+
+##Jinja2 template engine
+'''
+{%...%} statements,conditions, for loops
+{{  }} expressions to print output
+{#...#} this is for comments
+
+'''
 from flask import Flask,redirect, url_for, render_template,request
 app = Flask(__name__)
 
@@ -17,8 +25,9 @@ def success(score):
     if score>=50:
         res="PASS"
     else:
-        res="Fail"
-    return render_template('result.html', result=res)
+        res="FAIL"
+    exp={'score':score, 'res' : res}
+    return render_template('result.html', result=exp)
 
 @app.route('/fail/<int:score>')
 def fail(score):
