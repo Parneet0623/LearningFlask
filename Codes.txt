@@ -1,0 +1,15 @@
+//Beginning
+
+from flask import Flask
+app=Flask(__name__) ### WSGI Application
+
+@app.route('/') ### Decorator
+def welcome():
+    return'Welcome to Flask Learning...hello...'
+
+@app.route('/1') ### Decorator
+def Page1():
+    return'Welcome to Flask Learning...hello Once again...'
+
+if __name__=='__main__':
+    app.run(debug=True)
